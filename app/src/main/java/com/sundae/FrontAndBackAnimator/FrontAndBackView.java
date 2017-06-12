@@ -23,7 +23,7 @@ public class FrontAndBackView {
     private boolean isStart = false;
     private ObjectAnimator toFaceObjectAnimator , toBackObjectAnimator;
 
-    private int duration = 1200;
+    private int duration = 2400;
     private Context context;
 
     private FrontAndBackViewListener frontAndBackViewListener;
@@ -35,7 +35,7 @@ public class FrontAndBackView {
         this.faceView.setVisibility(View.VISIBLE);
         this.backView.setVisibility(GONE);
 
-        setCameraDistance();
+        //setCameraDistance();
 
         initAnim();
     }
@@ -44,13 +44,13 @@ public class FrontAndBackView {
     {
         toFaceObjectAnimator = new ObjectAnimator();
         toFaceObjectAnimator.setFloatValues(-90f , 0f);
-        toFaceObjectAnimator.setDuration(duration);
+        toFaceObjectAnimator.setDuration(duration / 2);
         toFaceObjectAnimator.setPropertyName("rotationY");
         toFaceObjectAnimator.setInterpolator(new LinearAnim());
 
         toBackObjectAnimator = new ObjectAnimator();
         toBackObjectAnimator.setFloatValues(0f , 90f);
-        toBackObjectAnimator.setDuration(duration);
+        toBackObjectAnimator.setDuration(duration / 2);
         toBackObjectAnimator.setPropertyName("rotationY");
         toBackObjectAnimator.setInterpolator(new LinearAnim());
 
@@ -117,7 +117,7 @@ public class FrontAndBackView {
 
 
     /**
-     * rotationY属性变换时需要调整相机距离，否则会影响用户
+     * rotationY属性变换时需要调整相机距离，否则会影响用户体验
      */
     private void setCameraDistance() {
         int distance = 16000;

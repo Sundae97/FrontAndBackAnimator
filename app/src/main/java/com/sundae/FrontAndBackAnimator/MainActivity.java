@@ -15,10 +15,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        frontView = findViewById(R.id.card_face);
-        backView = findViewById(R.id.card_back);
+        frontView = findViewById(R.id.front_view);
+        backView = findViewById(R.id.back_view);
 
         faceAndBackView = new FrontAndBackView(getApplicationContext() , frontView, backView);
+        //faceAndBackView.setDuration(1000);
         backView.setOnClickListener(this);
         frontView.setOnClickListener(this);
 
@@ -33,7 +34,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.card_face || v.getId() == R.id.card_back)
+        if(v.getId() == R.id.front_view || v.getId() == R.id.back_view)
             faceAndBackView.toggle();
     }
 }
