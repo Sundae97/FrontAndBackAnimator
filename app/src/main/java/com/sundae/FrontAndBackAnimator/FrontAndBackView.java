@@ -35,7 +35,7 @@ public class FrontAndBackView {
         this.faceView.setVisibility(View.VISIBLE);
         this.backView.setVisibility(GONE);
 
-        //setCameraDistance();
+        setCameraDistance();
 
         initAnim();
     }
